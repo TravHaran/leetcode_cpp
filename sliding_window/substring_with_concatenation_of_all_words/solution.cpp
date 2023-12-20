@@ -28,7 +28,7 @@ public:
         unordered_map<string, int> temp_word_map;
         unordered_set<string> prev_seen; // cache to store previously seen unique concatenations
         
-        for(int l = 0; l < s.size(); l++){
+        for(int l = 0; l <= s.size()-(words[0].length()*num_words); l++){
             if(prev_seen.count(s.substr(l, word_len*num_words))==1){ 
                 result.push_back(l);
                 continue;
