@@ -3,49 +3,39 @@
 #include <string>
 #include <iostream>
 using namespace std;
-/**
- * NOT COMPLETE
-*/
 class Solution {
-private:
-    int getHave(const unordered_map<char, int> t_map, const unordered_map<char, int> win_map){
-        int have_count = 0;
-        for(const auto [key, value] : t_map){
-            if(win_map[key] >= value) have_count++;
-        }
-        return have_count;
-    }
 public:
     string minWindow(string s, string t) {
-        string result;
+        vector<int> result;
         unordered_map<char, int> t_map;
         for(const auto el : t){
             t_map[el]++;
         }
         int need = t.size();
-        int i = 0;
-        int cur;
+        int have = 0;
         int min_len = INT32_MAX;
         int window_size;
         unordered_map<char, int> window_map;
-        while(i< s.size()){
-            if(t_map.count(s[i])!=0) {
-                cur = i;
-                while(cur < s.size()){
-                    if(t_map.count(s[i])!=0)
-                        window_map[s[cur]]++;
-                    while(getHave()==need){
-                        window_map[s[i]]--;
-                        if(window_map[s[i]]==0) window_map.erase(s[i]);
-                        window_size = cur - i + 1;
-                        min_len = min(min_len, window_size);
-                        if(window_size==min_len) result = s.substr(i, window_size);
-                        i++;
-                    }
+        int start = 0;
+        for(int i = 0; i < s.size(); i++){
+            window_map[s[i]]++;
+            if(t_map.count(s[i]) && window_map[s[i]]<=t_map[s[i]]){
+                have++;
+            }
+            while(have==need){
+                //update result
+                window_size = i - start + 1;
+                if(window_size < min_len){
+                    result = {start, window_size};
+                    min_len = window_size;
                 }
+                window_map[s[start]]--;
+                if(t_map.count(s[start]) && window_map[s[start]] < t_map[s[start]])
+                    have--;
+                start++;
             }
         }
-        return result;
+        return min_len != INT32_MAX ? s.substr(result[0], result[1]) : "";
     }
 };
 
