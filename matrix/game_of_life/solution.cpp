@@ -2,6 +2,18 @@
 using namespace std;
 
 class Solution {
+/**
+ * Whenever we are asked to do something in-place, we are mostly given the luxury of modifying our input data structure itself. 
+ * For example see this question, even though a cell can only be in one of two states (dead or alive), 
+ * we are given an integer matrix, where a bool matrix would obviously have been sufficient.
+ * But we can exploit that.
+ * We can use it to remember our modifications (which won't affect the other cells for now), 
+ * so that we have a record of them, while also separating them from the old values themselves, 
+ * that will affect the other cells.
+ * For this, we introduce two new states for a cell:
+ *      2: newly alive 
+ *      3: newly dead
+*/
 private: 
     int checkNeighbors(vector<vector<int>>& board, int i, int j){
         int m = board.size();
