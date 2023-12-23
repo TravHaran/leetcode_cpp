@@ -6,8 +6,6 @@ substring
 
 The testcases will be generated such that the answer is unique.
 
- 
-
 Example 1:
 
 Input: s = "ADOBECODEBANC", t = "ABC"
