@@ -1,5 +1,3 @@
-using namespace std;
-
 class Solution {
 private:
     struct ListNode {
