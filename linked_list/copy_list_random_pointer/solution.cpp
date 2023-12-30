@@ -16,6 +16,8 @@ public:
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
+        if(!head)
+            return head;
         Node* cur = head;
         Node* copy;
         Node* temp;
@@ -43,8 +45,6 @@ public:
         }
         //unweave the list to separate orignal nodes from the the duplicate nodes
         cur = head;
-        if(!head)
-            return head;
         result = head->next;
         while(cur){
             copy = cur->next; // set duplicate node
