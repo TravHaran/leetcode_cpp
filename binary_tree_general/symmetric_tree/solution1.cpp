@@ -12,6 +12,7 @@ private:
         TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     };
 public:
+    // iterative bfs
     bool isSymmetric(TreeNode* root) {
         if(!root) return true;
         deque<TreeNode*> q = {root, root};

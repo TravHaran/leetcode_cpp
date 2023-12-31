@@ -9,6 +9,7 @@ private:
         TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     };
 public:
+    // recursive bfs
     bool isSymmetric(TreeNode* root) {
         if(!root) return true;
         return symmetric(root, root);
