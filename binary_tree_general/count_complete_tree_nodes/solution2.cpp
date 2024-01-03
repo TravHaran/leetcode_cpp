@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution {
-    // Time: O(logN * logN), Space: O(H) where H is the height of the tree
+    // Time: O(logN * logN), Space: O(N) 
 private:
     struct TreeNode {
         int val;
