@@ -29,8 +29,8 @@ public:
         vector<int> v1 = {p2[0] - p1[0], p2[1] - p1[1]};
         vector<int> v2 = {p3[0] - p2[0], p3[1] - p2[1]};
         int crossProd = v1[0] * v2[1] - v1[1] * v2[0];
-        if(crossProd < 0) return -1; // counterclockwise
-        if(crossProd > 0) return 1; // clockwise
+        if(crossProd < 0) return -1; // clockwise
+        if(crossProd > 0) return 1; // counterclockwise
         return 0; // colinear
     }
 };
