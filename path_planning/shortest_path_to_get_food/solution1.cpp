@@ -2,6 +2,7 @@
 using namespace std;
 
 class Solution {
+    //BFS
 public:
     int getFood(vector<vector<char>>& grid) {
         int ROWS = grid.size();
